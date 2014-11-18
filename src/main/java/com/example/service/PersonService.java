@@ -1,9 +1,9 @@
 package com.example.service;
 
 
-import java.util.List;
-
 import com.example.model.Person;
+
+import java.util.List;
 
 public interface PersonService {
     
