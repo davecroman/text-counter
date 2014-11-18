@@ -26,7 +26,8 @@ public class PersonServiceImpl implements PersonService {
     @Transactional
     public List<Person> listPeople() {
         CriteriaQuery<Person> c = em.getCriteriaBuilder().createQuery(Person.class);
-        c.from(Person.class);
+        Root<Person> from = c.from(Person.class);
+        c.orderBy(em.getCriteriaBuilder().asc(from.get("lastName")));
         return em.createQuery(c).getResultList();
     }
 
