@@ -13,33 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Map;
 
 @Controller
-public class PersonController {
+public class HomeController {
 
     @Autowired
     private PersonService personService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listPeople(Map<String, Object> map) {
-
-        map.put("person", new Person());
-        map.put("peopleList", personService.listPeople());
-
-        return "people";
+    public String goHome(Map<String, Object> map) {
+        return "textcounter";
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
-
-        personService.addPerson(person);
-
-        return "redirect:/";
-    }
-
-    @RequestMapping(value = "delete/{personId}")
-    public String deletePerson(@PathVariable("personId") Integer personId) {
-
-        personService.removePerson(personId);
-
-        return "redirect:/";
-    }
 }
