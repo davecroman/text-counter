@@ -24,6 +24,21 @@
 
 <body>
 
+<script>
+    function updateTable() {
+        var textArea = document.getElementById("inputText");
+        var wordCountField = document.getElementById("wordCount");
+
+        var text = textArea.value.trim();
+
+        if( text.length > 0 ){
+            wordCountField.textContent = text.split(/\s+/g).length;
+        }else{
+            wordCountField.textContent = 0;
+        }
+    }
+</script>
+
 <div class="container">
     <div class="pure-g header">
         <div class="pure-u-1"> <h1>Text Counter</h1> </div>
@@ -33,7 +48,7 @@
         <div class="pure-u-1-5"></div>
         <div class="pure-u-2-5">
             <form class="pure-form" style="margin: 5px;">
-                <textarea rows="10" cols="50" style="width:100%;max-width: 100%"></textarea>
+                <textarea id="inputText" rows="10" cols="50" style="width:100%;max-width: 100%" onkeyup="updateTable()"></textarea>
             </form>
         </div>
         <div class="pure-u-1-5" style="margin: 5px;">
@@ -47,7 +62,7 @@
                 <tbody>
                 <tr>
                     <td>Word count</td>
-                    <td>0</td>
+                    <td id="wordCount">0</td>
                 </tr>
 
                 <tr>
