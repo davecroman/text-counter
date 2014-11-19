@@ -28,31 +28,44 @@
     function updateTable() {
         var textArea = document.getElementById("inputText");
         var wordCountField = document.getElementById("wordCount");
+        var characterCountField = document.getElementById("characterCount");
 
-        var text = textArea.value.trim();
+        var text = textArea.value;
 
         if( text.length > 0 ){
-            wordCountField.textContent = text.split(/\s+/g).length;
+            wordCountField.textContent = text.trim().split(/\s+/g).length;
         }else{
             wordCountField.textContent = 0;
         }
+
+        characterCountField.textContent = text.length.toString();
+    }
+
+    function clearTextArea() {
+        var textArea = document.getElementById("inputText");
+
+        textArea.value = "";
+        updateTable();
     }
 </script>
 
-<div class="container">
-    <div class="pure-g header">
-        <div class="pure-u-1"> <h1>Text Counter</h1> </div>
-    </div>
+<div class="pure-g header">
+    <div class="pure-u-1"> <h1>Text Counter</h1> </div>
+</div>
 
-    <div class="pure-g" style="margin-top: 5px;">
-        <div class="pure-u-1-5"></div>
-        <div class="pure-u-2-5">
-            <form class="pure-form" style="margin: 5px;">
-                <textarea id="inputText" rows="10" cols="50" style="width:100%;max-width: 100%" onkeyup="updateTable()"></textarea>
-            </form>
-        </div>
-        <div class="pure-u-1-5" style="margin: 5px;">
-            <table class="pure-table table-striped" style="width: 100%">
+<div class="pure-g" style="margin-top: 5px;">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-2-5">
+        <form class="pure-form">
+            <textarea id="inputText" rows="15" cols="50" style="width:100%;max-width: 100%" onkeyup="updateTable()" onchange="updateTable()"></textarea>
+        </form>
+        <button class="pure-button" onclick="clearTextArea()" style="margin-top:5px;">
+            Clear Text
+        </button>
+    </div>
+    <div class="pure-u-1-5">
+        <div class="pure-form">
+            <table class="pure-table table-striped" style="width:100%; margin: 0 5px;">
                 <thead>
                 <tr>
                     <th colspan="2">Details</th>
@@ -66,16 +79,17 @@
                 </tr>
 
                 <tr>
-                    <td>Paragraph count</td>
-                    <td>0</td>
+                    <td>Character count</td>
+                    <td id="characterCount">0</td>
                 </tr>
 
 
                 </tbody>
             </table>
         </div>
-        <div class="pure-u-1-5"></div>
+
     </div>
+    <div class="pure-u-1-5"></div>
 </div>
 
 </body>
