@@ -2,7 +2,7 @@
 
 This is a single-paged webapp that measures an input text's word count, readability, and other metrics. This is using Java, Spring MVC. The current app's state is also accessible via heroku through this link:
 
-    https://textcounter.heroku.com
+    https://textcounter.herokuapp.com/
 
 ## Running the application locally
 
