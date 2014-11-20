@@ -1,0 +1,13 @@
+<script src="/resources/js/counter.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/resources/js/bootstrap-dropdown-checkbox.js"></script>
+
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="">TextCheck</a>
+        <ul class="nav">
+            <li><a href="">So it's ready for QA</a></li>
+        </ul>
+    </div>
+</div>

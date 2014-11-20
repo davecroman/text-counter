@@ -9,7 +9,7 @@
 
             <tbody>
             <tr>
-                <td>Word count</td>
+                <td>Word count <span class="dropdown-checkbox-example dropdown-checkbox dropdown"></span> </td>
                 <td id="wordCount">0</td>
             </tr>
 

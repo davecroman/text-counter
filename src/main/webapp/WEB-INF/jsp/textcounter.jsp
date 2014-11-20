@@ -17,24 +17,24 @@
 
     <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="/resources/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-dropdown-checkbox.css" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
-<script src="/resources/js/counter.js"></script>
-
-<div class="pure-g header">
-    <div class="pure-u-1"><h1>Text Counter</h1></div>
-</div>
+<%@ include file="header.jspf" %>
 
 <div class="pure-g" style="margin-top: 5px;">
     <div class="pure-u-1-5"></div>
     <div class="pure-u-2-5">
-        <form class="pure-form">
-            <textarea id="inputText" placeholder="Write or paste text here" rows="15" cols="50" style="width:100%; max-width:100%" onkeyup="updateTable()"
+        <div class="pure-g">
+            <textarea id="inputText" placeholder="Write or paste text here" rows="15"
+                      style="width:100%; max-width:100%" onkeyup="updateTable()"
                       onchange="updateTable()" on></textarea>
-        </form>
-        <button disabled id="clearTextButton" class="pure-button" onclick="clearTextArea()" style="margin-top:5px;">
+        </div>
+        <button disabled id="clearTextButton" class="pure-button" onclick="clearTextArea()">
             Clear Text
         </button>
     </div>
@@ -43,4 +43,64 @@
 </div>
 
 </body>
+
+<script>
+    function list(size, checked) {
+        var result = [];
+        for (var i = 0; i < size; i++) {
+            result.push({
+                id: i,
+                label: 'Item #' + i,
+                isChecked: checked === undefined ? !!(Math.round(Math.random() * 1)) : checked
+            });
+        }
+        return result;
+    }
+
+
+    var widget;
+
+    var tab = [
+        { id: "1", label: "Exclude articles", isChecked: false }
+    ];
+
+    function p(wat) {
+        return '<p>' + JSON.stringify(wat) + '</p>';
+    }
+
+    function updateStatus() {
+        var $p = $('p.status').empty();
+
+        $p.append(p(widget.checked()));
+        updateTable();
+    }
+
+    $('.dropdown-checkbox-example').dropdownCheckbox({
+        data: tab,
+        autosearch: false,
+        title: "My Dropdown Checkbox",
+        hideHeader: true,
+        showNbSelected: true,
+        templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i><b class="caret"></b>'
+    });
+
+    $('.alternate-behaviour').dropdownCheckbox({
+        data: list(3000, false),
+        autosearch: true,
+        title: "Alternate behaviour",
+        hideHeader: false,
+        showNbSelected: true,
+        maxItems: 500,
+        alternate: true,
+        templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#">Alternate Behaviour <span class="dropdown-checkbox-nbselected"></span><b class="caret"></b>'
+    });
+
+    widget = $('.dropdown-checkbox-example').data('dropdownCheckbox');
+
+    $('body').on('change:dropdown-checkbox checked checked:all check:all uncheck:all check:checked uncheck:checked', updateStatus());
+    updateStatus()
+
+</script>
+
+
 </html>
