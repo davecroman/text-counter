@@ -1,6 +1,8 @@
-# Spring MVC and Hibernate template application
+# Text Counter
 
-This is a template for a web application that uses Spring MVC and Hibernate. The sample code is a simple CRUD page that manipulates records for a single model object.
+This is a single-paged webapp that measures an input text's word count, readability, and other metrics. This is using Java, Spring MVC. The current app's state is also accessible via heroku through this link:
+
+    https://textcounter.heroku.com
 
 ## Running the application locally
 
