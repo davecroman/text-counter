@@ -31,7 +31,7 @@
     <div class="pure-u-1-5"></div>
     <div class="pure-u-2-5">
         <form class="pure-form">
-            <textarea id="inputText" rows="15" cols="50" style="width:100%; max-width:100%" onkeyup="updateTable()"
+            <textarea id="inputText" placeholder="Write or paste text here" rows="15" cols="50" style="width:100%; max-width:100%" onkeyup="updateTable()"
                       onchange="updateTable()" on></textarea>
         </form>
         <button disabled id="clearTextButton" class="pure-button" onclick="clearTextArea()" style="margin-top:5px;">
