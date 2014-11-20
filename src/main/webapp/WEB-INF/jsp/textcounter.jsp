@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.5.0/pure-min.css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/main.css' />" type="text/css"/>
+    <link rel="stylesheet" href="/resources/css/main.css" type="text/css">
 </head>
 
 <body>
