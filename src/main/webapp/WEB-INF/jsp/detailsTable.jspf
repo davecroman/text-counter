@@ -1,0 +1,26 @@
+<div class="pure-u-1-5">
+    <div class="pure-form">
+        <table class="pure-table table-striped" style="width:100%; margin: 0 5px;">
+            <thead>
+            <tr>
+                <th colspan="2">Details</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Word count</td>
+                <td id="wordCount">0</td>
+            </tr>
+
+            <tr>
+                <td>Character count</td>
+                <td id="characterCount">0</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
