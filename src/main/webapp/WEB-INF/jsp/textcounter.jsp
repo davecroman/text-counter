@@ -21,7 +21,7 @@
 
 <body>
 
-<script src=/resources/js/counter.js"></script>
+<script src="/resources/js/counter.js"></script>
 
 <div class="pure-g header">
     <div class="pure-u-1"><h1>Text Counter</h1></div>
