@@ -12,14 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.5.0/pure-min.css">
 
-    <style>
-        .header{
-            font-family: "omnes-pro", sans-serif;
-            text-align: center;
-            border-bottom: 1px solid #dddddd;
-            background: #eeeeee;
-        }
-    </style>
+    <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" >
+
+    <%--<style>--%>
+        <%--.header{--%>
+            <%--font-family: "omnes-pro", sans-serif;--%>
+            <%--text-align: center;--%>
+            <%--border-bottom: 1px solid #dddddd;--%>
+            <%--background: #eeeeee;--%>
+        <%--}--%>
+    <%--</style>--%>
 </head>
 
 <body>
