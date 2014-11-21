@@ -31,8 +31,7 @@
     <div class="pure-u-2-5">
         <div class="pure-g">
             <textarea id="inputText" placeholder="Write or paste text here" rows="15"
-                      style="width:100%; max-width:100%" onkeyup="updateTable()"
-                      onchange="updateTable()" on></textarea>
+                      style="width:100%; max-width:100%"></textarea>
         </div>
         <button disabled id="clearTextButton" class="pure-button" onclick="clearTextArea()">
             Clear Text
@@ -60,7 +59,7 @@
 
     var widget;
 
-    var tab = [
+    var wordcount_options = [
         { id: "1", label: "Exclude articles", isChecked: false }
     ];
 
@@ -75,31 +74,20 @@
         updateTable();
     }
 
-    $('.dropdown-checkbox-example').dropdownCheckbox({
-        data: tab,
-        autosearch: false,
-        title: "My Dropdown Checkbox",
+    $('.wordcount-settings').dropdownCheckbox({
+        data: wordcount_options,
+        title: "Wordcount Settings",
         hideHeader: true,
-        showNbSelected: true,
+        showNbSelected: false,
         templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i><b class="caret"></b>'
     });
 
-    $('.alternate-behaviour').dropdownCheckbox({
-        data: list(3000, false),
-        autosearch: true,
-        title: "Alternate behaviour",
-        hideHeader: false,
-        showNbSelected: true,
-        maxItems: 500,
-        alternate: true,
-        templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#">Alternate Behaviour <span class="dropdown-checkbox-nbselected"></span><b class="caret"></b>'
-    });
+    widget = $('.wordcount-settings').data('dropdownCheckbox');
 
-    widget = $('.dropdown-checkbox-example').data('dropdownCheckbox');
+    $('body').on('change:dropdown-checkbox checked checked:all check:all uncheck:all check:checked uncheck:checked', updateStatus);
+    updateStatus();
 
-    $('body').on('change:dropdown-checkbox checked checked:all check:all uncheck:all check:checked uncheck:checked', updateStatus());
-    updateStatus()
-
+    $('#inputText').on('input paste', updateStatus);
 </script>
 
 
