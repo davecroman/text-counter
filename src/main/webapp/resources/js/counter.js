@@ -15,19 +15,28 @@ function countWords(text, excludeArticles) {
     }
 }
 
+function countCharacters(text, excludeSpaces) {
+    if(excludeSpaces){
+        text = text.replace(/\s+/g, "");
+    }
+    return text.length;
+}
+
 function updateTable() {
     var textArea = document.getElementById("inputText");
     var wordCountField = document.getElementById("wordCount");
     var characterCountField = document.getElementById("characterCount");
     var excludeArticles = $('.wordcount-settings').dropdownCheckbox("checked").filter(function(e){ return e.label == "Exclude articles" }).length > 0;
+    var excludeSpaces = $('.charactercount-settings').dropdownCheckbox("checked").filter(function(e){ return e.label == "Exclude spaces"}).length > 0;
     var text = textArea.value;
 
     var wordCount = countWords(text, excludeArticles);
+    var charCount = countCharacters(text, excludeSpaces);
 
     wordCountField.textContent = wordCount;
     document.getElementById("clearTextButton").disabled = wordCount == 0;
 
-    characterCountField.textContent = text.length.toString();
+    characterCountField.textContent = charCount;
 
 }
 

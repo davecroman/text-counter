@@ -14,7 +14,7 @@
             </tr>
 
             <tr>
-                <td>Character count</td>
+                <td>Character count <span class="charactercount-settings dropdown-checkbox dropdown"></span></td>
                 <td id="characterCount">0</td>
             </tr>
             </tbody>

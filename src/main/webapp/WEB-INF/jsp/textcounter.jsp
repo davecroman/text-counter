@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 
@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
 <%@ include file="header.jspf" %>
 
 <div class="pure-g" style="margin-top: 5px;">
@@ -63,6 +62,11 @@
         { id: "1", label: "Exclude articles", isChecked: false }
     ];
 
+    var charcount_options = [
+        { id: "1", label: "Exclude spaces", isChecked: false },
+        { id: "2", label: "Exclude non-alphanumeric", isChecked: false }
+    ];
+
     function p(wat) {
         return '<p>' + JSON.stringify(wat) + '</p>';
     }
@@ -79,15 +83,23 @@
         title: "Wordcount Settings",
         hideHeader: true,
         showNbSelected: false,
-        templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i><b class="caret"></b>'
+        templateButton: '<tags:settings-dropdown-button/>'
+    });
+
+    $('.charactercount-settings').dropdownCheckbox({
+        data: charcount_options,
+        title: "Character Count Settings",
+        hideHeader: true,
+        showNbSelected: false,
+        templateButton: '<tags:settings-dropdown-button/>'
     });
 
     widget = $('.wordcount-settings').data('dropdownCheckbox');
 
     $('body').on('change:dropdown-checkbox checked checked:all check:all uncheck:all check:checked uncheck:checked', updateStatus);
-    updateStatus();
-
     $('#inputText').on('input paste', updateStatus);
+
+    updateStatus();
 </script>
 
 

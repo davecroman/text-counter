@@ -1,0 +1,1 @@
+<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-fw"></i><b class="caret"></b>
