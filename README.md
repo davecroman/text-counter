@@ -20,11 +20,11 @@ cd textcounter
 ## Running the application locally
 
 First build with:
-
-    $mvn clean install
-
+```
+mvn clean install
+```
 Then run it with:
-
-    $java -jar target/dependency/webapp-runner.jar target/*.war
-    
+```
+java -jar target/dependency/webapp-runner.jar target/*.war
+```   
 Open the app through localhost:8080
