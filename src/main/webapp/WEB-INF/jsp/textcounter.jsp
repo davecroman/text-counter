@@ -28,7 +28,7 @@
 <div class="pure-g" style="margin-top: 5px;">
     <div class="pure-u-1-5"></div>
     <div class="pure-u-2-5">
-        <div class="pure-g">
+        <div class="pure-form">
             <textarea id="inputText" placeholder="Write or paste text here" rows="15"
                       style="width:100%; max-width:100%"></textarea>
         </div>
@@ -43,19 +43,6 @@
 </body>
 
 <script>
-    function list(size, checked) {
-        var result = [];
-        for (var i = 0; i < size; i++) {
-            result.push({
-                id: i,
-                label: 'Item #' + i,
-                isChecked: checked === undefined ? !!(Math.round(Math.random() * 1)) : checked
-            });
-        }
-        return result;
-    }
-
-
     var widget;
 
     var wordcount_options = [
