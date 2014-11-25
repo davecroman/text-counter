@@ -22,7 +22,9 @@ cd textcounter
 First build with:
 ```
 mvn clean install
+mvn package
 ```
+
 Then run it with:
 ```
 java -jar target/dependency/webapp-runner.jar target/*.war
