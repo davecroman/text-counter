@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     wordCountField = document.getElementById("wordCount");
     characterCountField = document.getElementById("characterCount");
     syllableCountField = document.getElementById("syllableCount");
-    clearTextArea = document.getElementById("clearTextButton");
+    clearTextButton = document.getElementById("clearTextButton");
 });
 
 function asWords(text){
@@ -59,7 +59,7 @@ function updateTable() {
         wordCountField.textContent = countWords(words, isExcludeArticlesChecked());
         characterCountField.textContent = countCharacters(text, isExcludeSpacesChecked(), isExcludeNonAlphaNumericChecked());
         syllableCountField.textContent = countSyllables(words);
-        clearTextArea.disabled = false;
+        clearTextButton.disabled = false;
     }
 }
 
@@ -68,7 +68,7 @@ function resetFieldsToZero() {
         = characterCountField.textContent
         = syllableCountField.textContent = 0;
 
-    clearTextArea.disabled = true;
+    clearTextButton.disabled = true;
 }
 
 function isExcludeSpacesChecked(){
