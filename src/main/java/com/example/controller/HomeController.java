@@ -15,9 +15,6 @@ import java.util.Map;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private PersonService personService;
-
     @RequestMapping(method = RequestMethod.GET)
     public String goHome(Map<String, Object> map) {
         return "textcounter";
