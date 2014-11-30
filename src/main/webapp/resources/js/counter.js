@@ -1,11 +1,25 @@
 var articles = ["a", "an", "the"];
 var articleFilter = function(word){ return articles.indexOf(word) <= -1 };
+var text_stat = textstatistics("");
+var textArea;
+var wordCountField;
+var characterCountField;
+var syllableCountField;
+var clearTextButton;
 
-function countWords(text, excludeArticles) {
-    if( text.length == 0 ) { return 0; }
+document.addEventListener("DOMContentLoaded", function() {
+    textArea = document.getElementById("inputText");
+    wordCountField = document.getElementById("wordCount");
+    characterCountField = document.getElementById("characterCount");
+    syllableCountField = document.getElementById("syllableCount");
+    clearTextArea = document.getElementById("clearTextButton");
+});
 
-    var words = text.trim().split(/\s+/g);
+function asWords(text){
+    return text.split(/\s+/g);
+}
 
+function countWords(words, excludeArticles) {
     if( excludeArticles ){
         return words.filter(articleFilter).length;
     }else{
@@ -25,17 +39,36 @@ function countCharacters(text, excludeSpaces, excludeNonAlphaNumeric) {
     return reducedText.length;
 }
 
+function countSyllables(words){
+    var syllableCount = 0;
+
+    $.each(words, function(index,word){
+        syllableCount += text_stat.syllableCount(word);
+    });
+
+    return syllableCount;
+}
+
 function updateTable() {
-    var textArea = document.getElementById("inputText");
-    var wordCountField = document.getElementById("wordCount");
-    var characterCountField = document.getElementById("characterCount");
+    var text = textArea.value.trim();
 
-    var text = textArea.value;
+    if( text.length == 0 ) {
+        resetFieldsToZero();
+    } else {
+        var words = asWords(text);
+        wordCountField.textContent = countWords(words, isExcludeArticlesChecked());
+        characterCountField.textContent = countCharacters(text, isExcludeSpacesChecked(), isExcludeNonAlphaNumericChecked());
+        syllableCountField.textContent = countSyllables(words);
+        clearTextArea.disabled = false;
+    }
+}
 
-    wordCountField.textContent = countWords(text, isExcludeArticlesChecked());
-    document.getElementById("clearTextButton").disabled = text.length == 0;
+function resetFieldsToZero() {
+    wordCountField.textContent
+        = characterCountField.textContent
+        = syllableCountField.textContent = 0;
 
-    characterCountField.textContent = countCharacters(text, isExcludeSpacesChecked(), isExcludeNonAlphaNumericChecked());
+    clearTextArea.disabled = true;
 }
 
 function isExcludeSpacesChecked(){
@@ -51,6 +84,6 @@ function isExcludeArticlesChecked() {
 }
 
 function clearTextArea() {
-    document.getElementById("inputText").value = "";
+    textArea.value = "";
     updateTable();
 }

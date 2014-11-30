@@ -59,10 +59,14 @@
     }
 
     function updateStatus() {
+        updateWidgets();
+        updateTable();
+    }
+
+    function updateWidgets(){
         var $p = $('p.status').empty();
 
         $p.append(p(widget.checked()));
-        updateTable();
     }
 
     $('.wordcount-settings').dropdownCheckbox({
@@ -86,7 +90,7 @@
     $('body').on('change:dropdown-checkbox checked checked:all check:all uncheck:all check:checked uncheck:checked', updateStatus);
     $('#inputText').on('input paste', updateStatus);
 
-    updateStatus();
+    updateWidgets();
 </script>
 
 

@@ -17,6 +17,11 @@
                 <td>Character count <span class="charactercount-settings dropdown-checkbox dropdown"></span></td>
                 <td id="characterCount">0</td>
             </tr>
+
+            <tr>
+                <td>Syllable count</td>
+                <td id="syllableCount">0</td>
+            </tr>
             </tbody>
         </table>
     </div>

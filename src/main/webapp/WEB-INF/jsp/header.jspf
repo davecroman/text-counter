@@ -1,7 +1,7 @@
-<script src="/resources/js/counter.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="/resources/js/bootstrap-dropdown-checkbox.js"></script>
-
+<script src="/resources/js/cgiffard-textstat.js"></script>
+<script src="/resources/js/counter.js"></script>
 
 <div class="navbar">
     <div class="navbar-inner">
