@@ -30,3 +30,11 @@ Then run it with:
 java -jar target/dependency/webapp-runner.jar target/*.war
 ```   
 Open the app through localhost:8080
+
+## Acknowledgement
+
+This project uses [TextStatistics.js](https://github.com/cgiffard/TextStatistics.js), a JavaScript port of [DaveChild](https://github.com/DaveChild)'s [TextStatistics](https://github.com/DaveChild/Text-Statistics), created by [cgiffard](https://github.com/cgiffard)
+
+## License and Copyright
+
+\# Copyright by Armond Ave, 2014 Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
