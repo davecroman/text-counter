@@ -11,7 +11,7 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String goHome(Map<String, Object> map) {
-        return "textcounter";
+        return "home";
     }
 
 }

@@ -4,3 +4,35 @@
     border-bottom: 1px solid #dddddd;
     background: #eeeeee;
 }
+
+.dropt {
+    border-bottom: thin dotted;
+    background: #ffeedd;
+}
+
+.dropt:hover {
+    text-decoration: none; background: #ffffff; z-index: 6;
+}
+
+.dropt span {
+    position: absolute;
+    left: -9999px;
+    margin: 10px 20px;
+    padding: 3px 3px 3px 3px;
+    border-style:solid;
+    border-color:gray;
+    border-width:5px;
+    z-index: 6;
+}
+
+.dropt:hover span {
+    right: 20%;
+    left: auto;
+    background: #ffffff;
+}
+
+.dropt:hover span {
+    margin: 20px 10px;
+    background: #ffffff;
+    z-index:6;
+}

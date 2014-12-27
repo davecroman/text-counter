@@ -25,4 +25,30 @@
             </tbody>
         </table>
     </div>
+    <div class="pure-form" style="margin-top:5px">
+        <table class="pure-table table-striped" style="width:100%; margin: 0 5px;">
+            <thead>
+            <tr>
+                <th colspan="2">Readability Score</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td class="dropt">Flesch Reading Ease
+                <span>
+                    <b>Flesch Reading Ease</b>
+                    <p>This is a readability test that measures how hard it is to read a given text material.</p>
+                    <p>The higher the score, the easier it is to read</p>
+                    <p> <b>90-100+</b> : Very easily understandable by an average 5th grader <br>
+                       <b>60-89</b> : Easily understandable by 15-year-old students <br>
+                       <b>50-59</b> : Where Time Magazine falls under <br>
+                       <b>Below 50</b> : Difficult <br>
+                </span>
+                </td>
+                <td id="fleschReadingEase">-</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

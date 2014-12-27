@@ -6,13 +6,16 @@ var wordCountField;
 var characterCountField;
 var syllableCountField;
 var clearTextButton;
+var fleschReadingEaseField;
 
 document.addEventListener("DOMContentLoaded", function() {
     textArea = document.getElementById("inputText");
     wordCountField = document.getElementById("wordCount");
     characterCountField = document.getElementById("characterCount");
     syllableCountField = document.getElementById("syllableCount");
+    fleschReadingEaseField = document.getElementById("fleschReadingEase");
     clearTextButton = document.getElementById("clearTextButton");
+
 });
 
 function asWords(text){
@@ -49,6 +52,10 @@ function countSyllables(words){
     return syllableCount;
 }
 
+function measureFleschReadingEase(text){
+    return text_stat.fleschKincaidReadingEase(text)
+}
+
 function updateTable() {
     var text = textArea.value.trim();
 
@@ -59,6 +66,7 @@ function updateTable() {
         wordCountField.textContent = countWords(words, isExcludeArticlesChecked());
         characterCountField.textContent = countCharacters(text, isExcludeSpacesChecked(), isExcludeNonAlphaNumericChecked());
         syllableCountField.textContent = countSyllables(words);
+        fleschReadingEaseField.textContent = measureFleschReadingEase(text);
         clearTextButton.disabled = false;
     }
 }
@@ -67,6 +75,8 @@ function resetFieldsToZero() {
     wordCountField.textContent
         = characterCountField.textContent
         = syllableCountField.textContent = 0;
+
+    fleschReadingEaseField.textContent = '-';
 
     clearTextButton.disabled = true;
 }
